@@ -3,7 +3,7 @@ from UserClick import UserClick
 
 class SequenceFileLoader:
 
-    action_factory_methods = \
+    action_factory_method = \
     {
         UserClick.__name__: UserClick.from_text
     }
