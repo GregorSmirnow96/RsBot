@@ -1,6 +1,6 @@
 import win32api, win32con
 from HumanizedSleeper import HumanizedSleeper
-from MouseInfo import MouseInfo
+from Mouse import Mouse
 
 class UserClick:
 
@@ -26,7 +26,7 @@ class UserClick:
             self.clicked_coordinate = clicked_coordinate
             self.pre_click_duration = pre_click_duration
             self.sleeper = HumanizedSleeper(0.0, 0.3, 6.27)
-            self.mouse_info = MouseInfo()
+            self.mouse = Mouse()
 
     def perform_action(self):
         '''
