@@ -13,8 +13,8 @@ class ClickSequenceCreator:
     def create_click_sequence(self):
         mouse = Mouse()
         finding_click_locations = True
-        while (finding_click_locations):
-            if (mouse.user_left_clicked()):
+        while finding_click_locations:
+            if mouse.user_left_clicked():
                 cursor_location = mouse.get_cursor_location()
                 user_click = UserClick(cursor_location, self.get_time_since_previous_click())
                 self.user_clicks.append(user_click)
@@ -24,7 +24,7 @@ class ClickSequenceCreator:
     
     def get_time_since_previous_click(self):
         self.current_click_time = time.time()
-        if (self.previous_click_time):
+        if self.previous_click_time:
             time_since_previous_click = self.current_click_time - self.previous_click_time
         else:
             time_since_previous_click = 0
