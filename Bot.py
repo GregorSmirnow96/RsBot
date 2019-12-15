@@ -29,5 +29,5 @@ class Bot:
     def save_sequence_to_file(self, file_path):
         sequence_file = open(file_path, "w+")
         for action in self.action_sequence:
-            line_line = action.to_text()
-            sequence_file.write(line_line + "\n")
+            next_line = action.to_text()
+            sequence_file.write(next_line + "\n")
