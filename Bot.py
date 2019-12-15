@@ -9,16 +9,19 @@ class Bot:
         return bot
 
     def __init__(self):
-        self.clickSequenceCreator = ClickSequenceCreator()
+        self.click_sequence_creator = None
+
+    def set_sequence_creator(self, sequence_creator):
+        self.click_sequence_creator = ClickSequenceCreator()
 
     def initialize_sequence(self):
         self.action_sequence = self.clickSequenceCreator.create_click_sequence()
 
     def execute_sequence(self):
-        while (True):
+        if (self.action_sequence == None):
+            pass
+        while (self.terminate_sequence()):
             for action in self.action_sequence:
-                if (self.terminate_sequence()):
-                    break
                 action.perform_action()
 
     def terminate_sequence(self):
