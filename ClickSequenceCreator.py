@@ -1,5 +1,5 @@
 import time
-from MouseInfo import MouseInfo
+from Mouse import Mouse
 from KeyUtilities import KeyUtilities as Keys
 from UserClick import UserClick
 
