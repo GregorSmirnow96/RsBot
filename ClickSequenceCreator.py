@@ -13,8 +13,7 @@ class ClickSequenceCreator:
         self.mouse = mouse
 
     def create_click_sequence(self):
-        finding_click_locations = True
-        while finding_click_locations:
+        while self.listening_for_user_clicks:
             self.listen_for_clicks()
         self.user_clicks[0].pre_click_duration = self.get_time_since_previous_click()
         return self.user_clicks
