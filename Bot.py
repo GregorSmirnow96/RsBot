@@ -19,11 +19,11 @@ class Bot:
 
     def execute_sequence(self):
         if (self.action_sequence):
-            while (self.sequence_should_terminate()):
+            while (self.get_sequence_should_terminate()):
                 next_action = self.action_sequence.get_next_action()
                 next_action.perform_action()
 
-    def sequence_should_terminate(self):
+    def get_sequence_should_terminate(self):
         return Keys.key_was_pressed(Keys.ESCAPE)
     
     def save_sequence_to_file(self, file_path):
