@@ -18,7 +18,7 @@ class Bot:
         self.action_sequence = self.clickSequenceCreator.create_click_sequence()
 
     def execute_sequence(self):
-        if (self.action_sequence is not None):
+        if (self.action_sequence):
             while (self.sequence_should_terminate()):
                 next_action = self.action_sequence.get_next_action()
                 next_action.perform_action()
