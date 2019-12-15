@@ -23,7 +23,7 @@ class Bot:
                 next_action = self.action_sequence.get_next_action()
                 next_action.perform_action()
 
-    def terminate_sequence(self):
+    def sequence_should_terminate(self):
         return Keys.key_was_pressed(Keys.ESCAPE)
     
     def save_sequence_to_file(self, file_path):
