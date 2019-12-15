@@ -18,10 +18,10 @@ class Bot:
         self.action_sequence = self.clickSequenceCreator.create_click_sequence()
 
     def execute_sequence(self):
-        if (self.action_sequence == None):
-            pass
-        while (not self.terminate_sequence()):
-            self.action_sequence.get_next_action().perform_action()
+        if (self.action_sequence is not None):
+            while (self.sequence_should_terminate()):
+                next_action = self.action_sequence.get_next_action()
+                next_action.perform_action()
 
     def terminate_sequence(self):
         return Keys.key_was_pressed(Keys.ESCAPE)
@@ -29,4 +29,5 @@ class Bot:
     def save_sequence_to_file(self, file_path):
         sequence_file = open(file_path, "w+")
         for action in self.action_sequence:
-            sequence_file.write(action.to_text() + "\n")
+            line_line = action.to_text()
+            sequence_file.write(line_line + "\n")
