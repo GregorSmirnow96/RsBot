@@ -20,9 +20,8 @@ class Bot:
     def execute_sequence(self):
         if (self.action_sequence == None):
             pass
-        while (self.terminate_sequence()):
-            for action in self.action_sequence:
-                action.perform_action()
+        while (not self.terminate_sequence()):
+            self.action_sequence.get_next_action().perform_action()
 
     def terminate_sequence(self):
         return Keys.key_was_pressed(Keys.ESCAPE)
