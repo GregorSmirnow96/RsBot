@@ -11,11 +11,11 @@ class ClickSequenceCreator:
         self.current_click_time = 0
 
     def create_click_sequence(self):
-        mouse_info = MouseInfo()
+        mouse = Mouse()
         finding_click_locations = True
         while (finding_click_locations):
-            if (mouse_info.user_left_clicked()):
-                coordinate_clicked = mouse_info.get_cursor_location()
+            if (mouse.user_left_clicked()):
+                coordinate_clicked = mouse.get_cursor_location()
                 user_click = UserClick(coordinate_clicked, self.get_time_since_previous_click())
                 self.user_clicks.append(user_click)
             finding_click_locations = not Keys.key_was_pressed(Keys.SHIFT)
