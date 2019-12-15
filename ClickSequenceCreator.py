@@ -15,8 +15,8 @@ class ClickSequenceCreator:
         finding_click_locations = True
         while (finding_click_locations):
             if (mouse.user_left_clicked()):
-                coordinate_clicked = mouse.get_cursor_location()
-                user_click = UserClick(coordinate_clicked, self.get_time_since_previous_click())
+                cursor_location = mouse.get_cursor_location()
+                user_click = UserClick(cursor_location, self.get_time_since_previous_click())
                 self.user_clicks.append(user_click)
             finding_click_locations = not Keys.key_was_pressed(Keys.SHIFT)
         self.user_clicks[0].pre_click_duration = self.get_time_since_previous_click()
