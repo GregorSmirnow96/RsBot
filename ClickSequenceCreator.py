@@ -5,12 +5,12 @@ from UserClick import UserClick
 
 class ClickSequenceCreator:
 
-    def __init__(self):
+    def __init__(self, mouse):
         self.user_clicks = []
         self.previous_click_time = None
         self.current_click_time = 0
         self.listening_for_user_clicks = True
-        self.mouse = Mouse()
+        self.mouse = mouse
 
     def create_click_sequence(self):
         finding_click_locations = True
