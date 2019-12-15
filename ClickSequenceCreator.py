@@ -15,6 +15,7 @@ class ClickSequenceCreator:
     def create_click_sequence(self):
         while self.listening_for_user_clicks:
             self.listen_for_click()
+            self.listening_for_user_clicks = not Keys.key_was_pressed(Keys.SHIFT)
         self.user_clicks[0].pre_click_duration = self.get_time_since_previous_click()
         return self.user_clicks
     
@@ -26,7 +27,6 @@ class ClickSequenceCreator:
                 cursor_location = cursor_location,
                 pre_click_duration = time_since_previous_click)
             self.user_clicks.append(user_click)
-        self.listening_for_user_clicks = not Keys.key_was_pressed(Keys.SHIFT)
         
     def get_time_since_previous_click(self):
         self.current_click_time = time.time()
