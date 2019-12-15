@@ -14,7 +14,7 @@ class ClickSequenceCreator:
 
     def create_click_sequence(self):
         while self.listening_for_user_clicks:
-            self.listen_for_clicks()
+            self.listen_for_click()
         self.user_clicks[0].pre_click_duration = self.get_time_since_previous_click()
         return self.user_clicks
     
