@@ -7,8 +7,7 @@ class ClickSequenceCreator:
 
     def __init__(self):
         self.user_clicks = []
-        self.initial_previous_click_time = -1
-        self.previous_click_time = self.initial_previous_click_time
+        self.previous_click_time = None
         self.current_click_time = 0
 
     def create_click_sequence(self):
@@ -25,10 +24,10 @@ class ClickSequenceCreator:
     
     def get_click_interval(self):
         self.current_click_time = time.time()
-        if (self.previous_click_time == self.initial_previous_click_time):
-            click_interval = 0
-        else:
+        if (self.previous_click_time):
             click_interval = self.current_click_time - self.previous_click_time
+        else:
+            click_interval = 0
         self.previous_click_time = self.current_click_time
         return click_interval
 
