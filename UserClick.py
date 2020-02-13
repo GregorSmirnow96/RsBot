@@ -1,6 +1,6 @@
 import win32api, win32con
 from HumanizedSleeper import HumanizedSleeper
-from Mouse import Mouse
+from MouseInfo import MouseInfo
 
 class UserClick:
 
@@ -17,8 +17,8 @@ class UserClick:
         y_coordinate = int(components[2])
         pre_click_duration = float(components[3])
         return UserClick(
-            clicked_coordinate = (x_coordinate, y_coordinate),
-            pre_click_duration = pre_click_duration)
+            (x_coordinate, y_coordinate),
+            pre_click_duration)
 
     def __init__(self,
         clicked_coordinate,
@@ -26,7 +26,7 @@ class UserClick:
             self.clicked_coordinate = clicked_coordinate
             self.pre_click_duration = pre_click_duration
             self.sleeper = HumanizedSleeper(0.0, 0.3, 6.27)
-            self.mouse = Mouse()
+            self.mouse_info = MouseInfo()
 
     def perform_action(self):
         '''
@@ -37,7 +37,7 @@ class UserClick:
         if (self.pre_click_duration > 0):
             self.sleeper.sleep_with_variance(self.pre_click_duration)
         self.click()
-        win32api.SetCursorPos(pre_click_cursor_location)
+        # win32api.SetCursorPos(pre_click_cursor_location)
 
     def to_text(self):
         '''

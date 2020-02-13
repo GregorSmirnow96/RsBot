@@ -9,6 +9,7 @@ bot = SequenceFileLoader.load_sequence_from_file("C:/bot sequences/crafting sequ
 bot.execute_sequence()
 '''
 
-bot = Bot.create_sequence()
+bot = Bot()
+bot.initialize_sequence()
 # bot.save_sequence_to_file("C:/bot sequences/crafting sequence.txt")
 bot.execute_sequence()

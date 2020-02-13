@@ -3,7 +3,8 @@ from UserClick import UserClick
 
 class SequenceFileLoader:
 
-    action_factory_method = {
+    action_factory_methods = \
+    {
         UserClick.__name__: UserClick.from_text
     }
 
@@ -13,8 +14,7 @@ class SequenceFileLoader:
         actions = []
         for line in file_lines:
             action_type = line.split()[0]
-            action_factory_function = SequenceFileLoader.action_factory_methods[action_type]
-            next_action = action_factory_function(line)
+            next_action = SequenceFileLoader.action_factory_methods[action_type](line)
             actions.append(next_action)
 
         bot = Bot()
